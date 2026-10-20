@@ -1,661 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08783e">
-
-  <meta name="description" content="Shop quality products at Oj. Crest. Quality Products, Better Living.">
-
-  <title>Oj. Crest | Online Shopping</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075b38">
+  <meta name="description" content="Oj. Crest — Quality Products, Better Living.">
+  <title>Oj. Crest | Quality Products, Better Living</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="topbar">
-    <span>🚚 Free shipping on orders above ₦20,000</span>
-    <span>🛡️ Secure shopping</span>
-    <span>↻ Easy returns</span>
-    <span>☏ Customer support</span>
+  <div class="top-strip">
+    <span>🚚 Free shipping on orders above ₦20,000</span><span>🛡 Secure shopping</span>
+    <span>↻ Easy returns (set your policy)</span><span>☏ Customer support</span>
   </div>
-
-  <!-- WEBSITE HEADER -->
-  <header class="site-header">
-
-    <a class="brand" href="#" aria-label="Oj. Crest homepage">
-
-      <span class="brand-mark">Oj.</span>
-
-      <span class="brand-copy">
-        <strong>Oj. Crest</strong>
-        <small>Quality Products, Better Living</small>
-      </span>
-
-    </a>
-
-    <!-- SEARCH -->
-    <form class="search" id="searchForm">
-
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="Search products, brands and categories..."
-        aria-label="Search products"
-      >
-
-      <button type="submit" aria-label="Search">
-        ⌕
-      </button>
-
-    </form>
-
-    <!-- HEADER BUTTONS -->
-    <div class="header-actions">
-
-      <button class="header-action" id="accountBtn">
-        <span class="action-icon">♙</span>
-        <span>
-          <small>Hello, welcome</small>
-          <b>Account</b>
-        </span>
-      </button>
-
-      <button class="header-action" id="wishlistBtn">
-        <span class="action-icon">♡</span>
-        <span>
-          <small>Your</small>
-          <b>Wishlist <i id="wishCount">0</i></b>
-        </span>
-      </button>
-
-      <button class="header-action" id="cartBtn">
-        <span class="action-icon">🛒</span>
-        <span>
-          <small>Your</small>
-          <b>Cart <i id="cartCount">0</i></b>
-        </span>
-      </button>
-
+  <header class="header">
+    <a class="brand" href="#" aria-label="Oj. Crest home"><span class="brand-logo">Oj.</span><span><b>Oj. Crest</b><small>Quality Products, Better Living</small></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open categories">☰</button>
+    <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Search products, brands and categories…" aria-label="Search products"><button aria-label="Search">⌕</button></form>
+    <div class="head-actions">
+      <button id="accountOpen" class="account-btn"><span class="head-icon">♙</span><span>Login / Sign Up<small>My Account</small></span></button>
+      <button class="head-icon-btn" id="wishlistOpen"><span class="head-icon">♡<i id="wishCount">0</i></span><small>Wishlist</small></button>
+      <button class="head-icon-btn" id="cartOpen"><span class="head-icon">🛒<i id="cartCount">0</i></span><small>Cart</small></button>
     </div>
-
   </header>
-
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
-
-    <button class="category-toggle" id="categoryToggle">
-      ☰ <span>All Categories</span>
-    </button>
-
-    <a href="#deals">Deals</a>
-    <a href="#featured">Categories</a>
-    <a href="#new-arrivals">New Arrivals</a>
-    <a href="#best-sellers">Best Sellers</a>
-
+  <nav class="nav">
+    <button id="categoryToggle" class="nav-category">☰ &nbsp; All Categories</button>
+    <div class="nav-links"><a href="#deals">Deals</a><a href="#prime">Oj. Prime</a><a href="#products">Shop Products</a><a href="#bestSellers">Best Sellers</a><a href="#newArrivals">New Arrivals</a></div>
   </nav>
 
-  <main class="page">
-
-    <!-- MAIN CONTENT LAYOUT -->
-    <div class="layout">
-
-      <!-- SIDEBAR CATEGORIES -->
-      <aside class="sidebar" id="sidebar">
-
-        <h3>Browse Categories</h3>
-
-        <a href="#products">▣ <span>Phones & Tablets</span><b>›</b></a>
-
-        <a href="#products">▤ <span>Electronics</span><b>›</b></a>
-
-        <a href="#products">⌂ <span>Home & Kitchen</span><b>›</b></a>
-
-        <a href="#products">♧ <span>Fashion</span><b>›</b></a>
-
-        <a href="#products">✿ <span>Beauty & Personal Care</span><b>›</b></a>
-
-        <a href="#products">▣ <span>Computers & Accessories</span><b>›</b></a>
-
-        <a href="#products">⚽ <span>Sports & Outdoors</span><b>›</b></a>
-
-        <a href="#products">♧ <span>Baby, Kids & Toys</span><b>›</b></a>
-
-        <a href="#products">▦ <span>Groceries & Household</span><b>›</b></a>
-
-        <a href="#products">♡ <span>Health & Wellness</span><b>›</b></a>
-
+  <main>
+    <section class="top-layout">
+      <aside class="category-sidebar" id="categorySidebar">
+        <h3>☰ &nbsp; All Categories</h3>
+        <div id="sidebarCategories"></div>
       </aside>
+      <div class="hero-column">
+        <section class="hero">
+          <div class="hero-copy"><span class="hero-pill">SHOP SMART · LIVE BETTER</span><h1>Find Your Next<br>Favourite Thing</h1><p>Explore quality products at prices you'll love.</p><a class="btn btn-lime" href="#products">Shop Now <span>→</span></a></div>
+          <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div><div class="hero-leaf">✦</div>
+          <div class="discount">WELCOME TO<strong>OJ. CREST</strong><small>Quality · Value · Service</small></div>
+        </section>
+        <div class="slider-dots"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
 
-      <!-- HERO BANNER -->
-      <section class="hero">
-
-        <div class="hero-content">
-
-          <span class="eyebrow">
-            WELCOME TO OJ. CREST
-          </span>
-
-          <h1>
-            Shop Smart.<br>
-            Live Better.
-          </h1>
-
-          <p>
-            Discover great finds for your everyday life.
-          </p>
-
-          <a href="#products" class="btn btn-lime">
-            Explore the store <span>→</span>
-          </a>
-
-        </div>
-
-        <!-- DECORATIVE HERO DESIGN -->
-        <div class="hero-art" aria-hidden="true">
-
-          <div class="orb orb-one"></div>
-          <div class="orb orb-two"></div>
-
-          <div class="floating-card card-a">
-            ✦
-            <small>Quality</small>
-          </div>
-
-          <div class="floating-card card-b">
-            ✓
-            <small>Value</small>
-          </div>
-
-          <div class="hero-box">
-            <span>Oj.</span>
-            <b>CREST</b>
-            <small>QUALITY • VALUE • TRUST</small>
-          </div>
-
-          <div class="leaf leaf-one"></div>
-          <div class="leaf leaf-two"></div>
-
-        </div>
-
-        <div class="hero-dots">
-          <i></i>
-          <i></i>
-          <i></i>
-        </div>
-
-      </section>
-
-    </div>
-
-    <!-- STORE BENEFITS -->
     <section class="trust-row">
-
-      <div>
-        <span class="trust-icon">✓</span>
-        <span>
-          <b>Quality Finds</b>
-          <small>Shop with confidence</small>
-        </span>
-      </div>
-
-      <div>
-        <span class="trust-icon">↗</span>
-        <span>
-          <b>Reliable Delivery</b>
-          <small>Across Nigeria</small>
-        </span>
-      </div>
-
-      <div>
-        <span class="trust-icon">↻</span>
-        <span>
-          <b>Easy Returns</b>
-          <small>Simple return process</small>
-        </span>
-      </div>
-
-      <div>
-        <span class="trust-icon">▣</span>
-        <span>
-          <b>Payment Options</b>
-          <small>Secure checkout</small>
-        </span>
-      </div>
-
+      <div><span class="trust-icon">✓</span><span><b>Quality First</b><small>Products you choose</small></span></div>
+      <div><span class="trust-icon">🚚</span><span><b>Delivery Options</b><small>Set your delivery terms</small></span></div>
+      <div><span class="trust-icon">↻</span><span><b>Customer Care</b><small>Here to help</small></span></div>
+      <div><span class="trust-icon">▣</span><span><b>Flexible Payments</b><small>Configure at checkout</small></span></div>
     </section>
 
-    <!-- SHOP BY CATEGORY -->
-    <section class="section" id="featured">
+    <section class="section" id="categoriesSection"><div class="section-title"><h2>☰ &nbsp; Shop by Category</h2><button class="text-link" id="allCategories">View all categories →</button></div><div class="category-tiles" id="categoryTiles"></div></section>
 
-      <div class="section-heading">
+    <section class="section" id="deals"><div class="section-title"><h2><span class="bolt">ϟ</span> Deals & Offers</h2><span class="muted">Your promotions will appear here</span></div><div class="empty-promo"><div class="empty-promo-icon">✦</div><div><b>Your promotions start here</b><p>Add products and promotional prices to show deals in this space.</p></div><button class="btn btn-green" id="addFirstDeal">Add a product</button></div></section>
 
-        <div>
-          <span class="heading-mark">▦</span>
-          <h2>Shop by Category</h2>
-        </div>
-
-        <a href="#products">
-          View all categories <b>→</b>
-        </a>
-
-      </div>
-
-      <div class="category-grid">
-
-        <a class="category-tile" href="#products">
-          <span>▣</span>
-          <b>Phones & Tablets</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>▤</span>
-          <b>Electronics</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>⌂</span>
-          <b>Home & Kitchen</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>♧</span>
-          <b>Fashion</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>✿</span>
-          <b>Beauty & Care</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>▦</span>
-          <b>Groceries</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>⚽</span>
-          <b>Sports</b>
-        </a>
-
-        <a class="category-tile" href="#products">
-          <span>♡</span>
-          <b>Baby & Kids</b>
-        </a>
-
-      </div>
-
+    <section class="promo-banners" id="prime">
+      <div class="promo promo-a"><span class="promo-shape">✦</span><b>Style Your<br>Everyday</b><small>Make your store your own</small><a href="#products">Explore store →</a></div>
+      <div class="promo promo-b"><span class="promo-shape">⌂</span><b>Make Home<br>Feel Like Home</b><small>Discover your product range</small><a href="#products">Explore store →</a></div>
+      <div class="promo promo-c"><span class="promo-shape">◈</span><b>Smart Finds<br>For Everyone</b><small>Good products, better living</small><a href="#products">Explore store →</a></div>
     </section>
 
-    <!-- SPECIAL OFFERS -->
-    <section class="section" id="deals">
+    <section class="section" id="bestSellers"><div class="section-title"><h2>♛ &nbsp; Best Sellers</h2><span class="muted">Your popular products will appear here</span></div><div class="product-grid" id="bestGrid"></div></section>
+    <section class="section" id="newArrivals"><div class="section-title"><h2>✧ &nbsp; New Arrivals</h2><span class="muted">Your newest products will appear here</span></div><div class="product-grid" id="newGrid"></div></section>
 
-      <div class="section-heading">
-
-        <div>
-          <span class="heading-mark">ϟ</span>
-          <h2>Special Offers</h2>
-          <span class="section-subtitle">
-            Add your deals and discounts here
-          </span>
-        </div>
-
-        <a href="#products">
-          View all <b>→</b>
-        </a>
-
-      </div>
-
-      <!-- PRODUCT GRID -->
-      <div class="product-grid" id="products">
-
-        <!--
-          PRODUCT TEMPLATE
-
-          Duplicate a product card whenever you want to add a product.
-
-          Replace:
-          1. YOUR PRODUCT IMAGE with your product image.
-          2. Your product name with the actual product name.
-          3. ₦0.00 with the actual price.
-
-          Remove the "empty-product" class when adding a real product.
-        -->
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">
-            ♡
-          </button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-
-            <p class="product-name">
-              Your product name
-            </p>
-
-            <p class="price">₦0.00</p>
-
-            <div class="rating">
-              ★★★★★ <small>(0 reviews)</small>
-            </div>
-
-            <button class="add-btn">
-              Add product
-            </button>
-
-          </div>
-
-        </article>
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">♡</button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-            <p class="product-name">Your product name</p>
-            <p class="price">₦0.00</p>
-            <div class="rating">★★★★★ <small>(0 reviews)</small></div>
-            <button class="add-btn">Add product</button>
-          </div>
-
-        </article>
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">♡</button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-            <p class="product-name">Your product name</p>
-            <p class="price">₦0.00</p>
-            <div class="rating">★★★★★ <small>(0 reviews)</small></div>
-            <button class="add-btn">Add product</button>
-          </div>
-
-        </article>
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">♡</button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-            <p class="product-name">Your product name</p>
-            <p class="price">₦0.00</p>
-            <div class="rating">★★★★★ <small>(0 reviews)</small></div>
-            <button class="add-btn">Add product</button>
-          </div>
-
-        </article>
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">♡</button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-            <p class="product-name">Your product name</p>
-            <p class="price">₦0.00</p>
-            <div class="rating">★★★★★ <small>(0 reviews)</small></div>
-            <button class="add-btn">Add product</button>
-          </div>
-
-        </article>
-
-        <article class="product-card empty-product">
-
-          <button class="heart" aria-label="Add to wishlist">♡</button>
-
-          <div class="product-placeholder">
-            <span>＋</span>
-            <small>YOUR PRODUCT IMAGE</small>
-          </div>
-
-          <div class="product-info">
-            <p class="product-name">Your product name</p>
-            <p class="price">₦0.00</p>
-            <div class="rating">★★★★★ <small>(0 reviews)</small></div>
-            <button class="add-btn">Add product</button>
-          </div>
-
-        </article>
-
-      </div>
-
+    <section class="section all-products" id="products">
+      <div class="section-title"><div><h2 id="productHeading">Explore Products</h2><p class="muted" id="resultCount">No products added yet</p></div><div class="filters"><select id="sortSelect" aria-label="Sort products"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option><option value="newest">Newest</option></select><button class="btn btn-outline" id="clearFilters">Clear filters</button></div></div>
+      <div class="filter-chips" id="filterChips"></div>
+      <div class="product-grid" id="allGrid"></div>
+      <div class="empty-state" id="emptyState"><div class="empty-box">＋</div><h3>Your store is ready for products</h3><p>You asked for no goods to be pre-filled, so this catalogue is intentionally empty.</p><button class="btn btn-green" id="emptyAddProduct">＋ Add your first product</button></div>
     </section>
 
-    <!-- PROMOTIONAL BANNERS -->
-    <section class="promo-grid">
-
-      <article class="promo promo-dark">
-
-        <span>OJ. CREST PICKS</span>
-
-        <h2>
-          Everyday<br>
-          Essentials
-        </h2>
-
-        <p>Useful finds for daily living.</p>
-
-        <a href="#products">
-          Explore <b>→</b>
-        </a>
-
-        <div class="promo-symbol">✦</div>
-
-      </article>
-
-      <article class="promo promo-light">
-
-        <span>MADE FOR YOUR HOME</span>
-
-        <h2>
-          Refresh Your<br>
-          Space
-        </h2>
-
-        <p>Make home feel even better.</p>
-
-        <a href="#products">
-          Explore <b>→</b>
-        </a>
-
-        <div class="promo-symbol">⌂</div>
-
-      </article>
-
-      <article class="promo promo-green">
-
-        <span>GREAT FINDS, ONE PLACE</span>
-
-        <h2>
-          More to Love.<br>
-          More to Choose.
-        </h2>
-
-        <p>Browse your next favourite find.</p>
-
-        <a href="#products">
-          Explore <b>→</b>
-        </a>
-
-        <div class="promo-symbol">↗</div>
-
-      </article>
-
-    </section>
-
-    <!-- POPULAR PRODUCTS -->
-    <section class="section" id="best-sellers">
-
-      <div class="section-heading">
-
-        <div>
-          <span class="heading-mark">♛</span>
-          <h2>Popular Products</h2>
-          <span class="section-subtitle">
-            Your best sellers will appear here
-          </span>
-        </div>
-
-        <a href="#products">
-          View all <b>→</b>
-        </a>
-
-      </div>
-
-      <div class="empty-state">
-
-        <span>＋</span>
-
-        <b>Your products, your store</b>
-
-        <p>
-          Add your product photos, names and prices
-          to turn this space into your catalogue.
-        </p>
-
-        <a class="btn btn-green" href="#products">
-          Start adding products
-        </a>
-
-      </div>
-
-    </section>
-
+    <section class="newsletter"><div><h2>Stay in the loop</h2><p>Subscribe for updates and offers from Oj. Crest.</p></div><form id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="Enter your email address" required><button class="btn btn-lime">Subscribe</button></form></section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-
-    <div class="footer-main">
-
-      <div class="footer-brand">
-
-        <a class="brand brand-footer" href="#">
-
-          <span class="brand-mark">Oj.</span>
-
-          <span class="brand-copy">
-            <strong>Oj. Crest</strong>
-            <small>Quality Products, Better Living</small>
-          </span>
-
-        </a>
-
-        <p>
-          Your destination for quality products
-          and everyday value.
-        </p>
-
-      </div>
-
-      <div>
-
-        <h4>Quick Links</h4>
-
-        <a href="#featured">Shop by Category</a>
-        <a href="#deals">Special Offers</a>
-        <a href="#best-sellers">Popular Products</a>
-        <a href="#">About Oj. Crest</a>
-
-      </div>
-
-      <div>
-
-        <h4>Customer Care</h4>
-
-        <a href="#">Contact Us</a>
-        <a href="#">FAQs</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Returns & Refunds</a>
-
-      </div>
-
-      <div class="newsletter">
-
-        <h4>Get Store Updates</h4>
-
-        <p>
-          Be the first to hear about new arrivals and offers.
-        </p>
-
-        <form id="newsletterForm">
-
-          <input
-            type="email"
-            placeholder="Your email address"
-            aria-label="Your email address"
-            required
-          >
-
-          <button type="submit">Subscribe</button>
-
-        </form>
-
-        <small id="newsletterMessage"></small>
-
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <span>
-        © <span id="year"></span> Oj. Crest. All rights reserved.
-      </span>
-
-      <span>
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Cookies</a>
-      </span>
-
-    </div>
-
+    <div class="footer-brand"><a class="brand brand-footer" href="#"><span class="brand-logo">Oj.</span><span><b>Oj. Crest</b><small>Quality Products, Better Living</small></span></a><p>© <span id="year"></span> Oj. Crest. All rights reserved.</p></div>
+    <div><h4>Quick Links</h4><a href="#categoriesSection">Shop by Category</a><a href="#products">All Products</a><a href="#deals">Deals & Offers</a><button data-info="About Oj. Crest">About Us</button></div>
+    <div><h4>Customer Service</h4><button data-info="Contact Us">Contact Us</button><button data-info="FAQs">FAQs</button><button data-info="Returns Policy">Returns Policy</button><button data-info="Shipping Information">Shipping Information</button></div>
+    <div><h4>Stay Connected</h4><div class="socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a><a href="#" aria-label="YouTube">▶</a></div><p>Quality products, better living.</p></div>
   </footer>
 
-  <!-- NOTIFICATION MESSAGE -->
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-  ></div>
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="drawer hidden" id="cartDrawer"><div class="drawer-head"><h2>Your Cart <small id="drawerCount"></small></h2><button class="close" data-close>×</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-footer"><div class="total-line"><span>Subtotal</span><b id="cartSubtotal">₦0</b></div><small>Delivery charges, if applicable, are confirmed at checkout.</small><button class="btn btn-green full" id="checkoutOpen">Proceed to Checkout</button><button class="text-link full" data-close>Continue shopping</button></div></aside>
+  <aside class="drawer hidden" id="wishlistDrawer"><div class="drawer-head"><h2>Your Wishlist</h2><button class="close" data-close>×</button></div><div class="drawer-body" id="wishlistItems"></div></aside>
 
-  <!-- JAVASCRIPT -->
-  <script src="script.js"></script>
-
+  <dialog class="modal" id="productModal"><button class="close modal-x" data-dialog-close>×</button><div id="productModalContent"></div></dialog>
+  <dialog class="modal wide-modal" id="manageModal"><button class="close modal-x" data-dialog-close>×</button><h2 id="manageTitle">Add a product</h2><p class="muted">Add your own goods. Products are saved in this browser on this device.</p>
+    <form id="productForm" class="form-stack">
+      <input type="hidden" id="editProductId">
+      <div class="form-grid"><label>Product name *<input id="productName" required maxlength="100" placeholder="Enter product name"></label><label>Category *<select id="productCategory" required></select></label></div>
+      <div class="form-grid"><label>Price in naira (₦) *<input id="productPrice" type="number" min="0" step="1" required placeholder="e.g. 25000"></label><label>Old price (optional)<input id="productOldPrice" type="number" min="0" step="1" placeholder="Optional"></label></div>
+      <div class="form-grid"><label>Stock quantity *<input id="productStock" type="number" min="0" step="1" value="1" required></label><label>Product rating (optional)<select id="productRating"><option value="0">Not rated yet</option><option value="5">5 stars</option><option value="4.5">4.5 stars</option><option value="4">4 stars</option><option value="3.5">3.5 stars</option><option value="3">3 stars</option></select></label></div>
+      <label>Image URL (optional)<input id="productImage" type="url" placeholder="https://example.com/product-image.jpg"><small>Use a publicly accessible image URL. Leave blank to use a clean placeholder.</small></label>
+      <label>Or choose an image from your device<input id="productImageFile" type="file" accept="image/*"><small>Local image is stored in this browser. Keep image files reasonably small.</small></label>
+      <label>Description<textarea id="productDescription" rows="3" maxlength="1000" placeholder="Describe your product, size, colour, features…"></textarea></label>
+      <label class="check-label"><input id="productFeatured" type="checkbox"> Mark as featured</label>
+      <div class="form-actions"><button type="button" class="btn btn-outline" data-dialog-close>Cancel</button><button class="btn btn-green" type="submit">Save product</button></div>
+    </form>
+  </dialog>
+  <dialog class="modal wide-modal" id="checkoutModal"><button class="close modal-x" data-dialog-close>×</button><h2>Checkout</h2><p class="muted">Starter demo only — real payments and order processing require a backend/payment provider.</p>
+    <form id="checkoutForm" class="form-stack">
+      <div class="form-grid"><label>Full name *<input name="name" autocomplete="name" required></label><label>Email address *<input name="email" type="email" autocomplete="email" required></label></div>
+      <div class="form-grid"><label>Phone number *<input name="phone" autocomplete="tel" required placeholder="080…"></label><label>State *<input name="state" required placeholder="e.g. Lagos"></label></div>
+      <label>Delivery address *<textarea name="address" rows="3" required></textarea></label>
+      <label>Payment preference *<select name="payment" required><option value="">Choose a method</option><option>Pay on delivery (demo)</option><option>Bank transfer (configure instructions)</option><option>Card payment (connect a provider first)</option></select></label>
+      <div class="total-line checkout-total"><span>Order total</span><b id="checkoutTotal">₦0</b></div><button class="btn btn-green full" type="submit">Place demo order</button>
+    </form>
+  </dialog>
+  <dialog class="modal" id="accountModal"><button class="close modal-x" data-dialog-close>×</button><h2>Welcome to Oj. Crest</h2><p class="muted">Account sign-in needs a secure backend. This demo form does not create a real account.</p><form id="accountForm" class="form-stack"><label>Email address<input type="email" required placeholder="you@example.com"></label><label>Password<input type="password" minlength="6" required placeholder="At least 6 characters"></label><button class="btn btn-green full">Continue</button></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
