@@ -1,83 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OJ CREST Supermarket - Like Jumia</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OJ CREST - Jumia Style Supermarket</title>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,Arial}
-body{background:#f5f5f5}
-.topbar{background:#000;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:12px}
-.header{background:#fff;padding:10px 15px;display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:100}
-.header input{flex:1;padding:12px;border-radius:5px;border:1px solid #ccc;background:#f5f5f5}
-.flash{background:#e61601;color:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center}
-.flash #timer{background:#000;padding:5px 10px;border-radius:3px}
-.categories{background:#fff;display:flex;overflow-x:auto;padding:10px;gap:10px}
-.cat{min-width:70px;text-align:center;font-size:12px}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:#fff;border-radius:5px;padding:10px;position:relative}
-.card img{width:100%;height:120px;object-fit:contain}
-.discount{position:absolute;top:5px;right:5px;background:#feef00;padding:2px 5px;font-size:12px;font-weight:bold}
-.price{font-weight:bold;margin-top:5px}
-.old{font-size:12px;text-decoration:line-through;color:#888}
-.badge{font-size:10px;background:#000;color:#fff;padding:2px 5px;border-radius:3px}
-.btn{background:#f68b1e;color:#fff;border:none;width:100%;padding:8px;margin-top:5px;border-radius:3px;font-weight:bold;cursor:pointer}
-.cart-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:15px;display:flex;justify-content:space-between;box-shadow:0 -2px 10px rgba(0,0,0,0.2)}
-</style>
-</head>
-<body>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f1f1f2}
+.top{background:#000;color:#fff;display:flex;justify-content:space-between;padding:8px 15px;font-size:12px}
+.head{background:#fff;padding:12px 15px;display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:10}
+.head input{flex:1;padding:12px;border-radius:4px;border:1px solid #ddd}
+.flash{background:#e61601;color:#fff;padding:10px 15px;display:flex;justify-content:space-between}
+#timer{background:#000;padding:4px 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+.card{background:#fff;padding:10px;border-radius:4px;position:relative}
+.card img{width:100%;height:110px;object-fit:contain}
+.off{position:absolute;top:5px;right:5px;background:#feef00;font-size:11px;padding:2px 6px;font-weight:bold}
+.price{font-weight:bold} .old{font-size:11px;color:#999;text-decoration:line-through}
+.btn{background:#f68b1e;color:#fff;border:none;width:100%;padding:9px;border-radius:3px;font-weight:bold;margin-top:6px}
+.wish{position:absolute;top:5px;left:5px;background:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 15px;display:flex;justify-content:space-between;box-shadow:0 -2px 10px #0003}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:20;align-items:center;justify-content:center}
+.modal .box{background:#fff;padding:20px;border-radius:8px;width:90%;max-width:400px}
+</style></head><body>
+<div class="top"><span>OJ CREST Supermarket</span><span>Track Order | Help</span></div>
+<div class="head"><b>OJ.</b><input id="q" placeholder="Search products, brands..." oninput="render()"><span onclick="showWishlist()">❤️<span id="wCount">0</span></span><span>🛒<span id="cCount">0</span></span></div>
+<div class="flash"><b>FLASH SALES - Up to 50% OFF</b><span id="timer">05:00:00</span></div>
+<div style="background:#fff;padding:10px"><select id="slot" style="width:100%;padding:8px"><option>Delivery: Today 4PM-6PM - ₦800</option><option>Tomorrow 9AM-11AM - ₦500</option><option>Pickup Station Akure - ₦300</option></select>
+<input id="voucher" placeholder="Voucher: SUPER10" style="width:100%;margin-top:8px;padding:8px"><button onclick="applyVoucher()" style="padding:5px">Apply</button> <small id="vMsg"></small></div>
+<div class="grid" id="list"></div>
+<div class="bar"><div><b id="total">₦0</b><br><small id="slotText">Delivery ₦800</small></div><button class="btn" style="width:140px;background:#000" onclick="pay()">CHECKOUT</button></div>
 
-<div class="topbar"><span>Sell on OJ CREST</span><span>Help | Track Order</span></div>
-<div class="header"><b>OJ.</b><input id="search" placeholder="Search products, brands and categories" onkeyup="searchProduct()"><span>🛒<span id="cartCount">0</span></span></div>
-
-<div class="flash"><b>⚡ Flash Sales | Supermarket Deals</b><span id="timer">00:00:00</span></div>
-
-<div class="categories">
-<div class="cat">🍚<br>Food Cupboard</div><div class="cat">🥤<br>Beverages</div><div class="cat">🧹<br>Cleaning</div><div class="cat">👶<br>Baby</div><div class="cat">🍞<br>Bakery</div>
-</div>
-
-<div class="products" id="productList"></div>
-
-<div class="cart-bar"><div><b id="total">₦0</b><br><small>Delivery: ₦800</small></div><button class="btn" style="width:150px" onclick="checkout()">CHECKOUT</button></div>
+<div class="modal" id="m"><div class="box"><h3 id="mTitle"></h3><p id="mBody"></p><button class="btn" onclick="document.getElementById('m').style.display='none'">Close</button></div></div>
 
 <script>
-// PRODUCTS - Like Jumia Database
-const products = [
-{id:1,name:"Indomie Noodles 70g x 40",price:5000,oldPrice:6500,discount:"-23%",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200",stock:"Only 5 left",sizes:["40 pcs","20 pcs"]},
-{id:2,name:"Power Oil 3L",price:4800,oldPrice:5500,discount:"-12%",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=200",stock:"In Stock",sizes:["1L","3L","5L"]},
-{id:3,name:"Golden Penny Sugar 1kg",price:1500,oldPrice:1800,discount:"-16%",img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200",stock:"In Stock",sizes:["500g","1kg"]},
-{id:4,name:"Peak Milk 400g",price:2100,oldPrice:2100,discount:"",img:"https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200",stock:"In Stock",sizes:["400g"]}
+let PRODUCTS = JSON.parse(localStorage.getItem('oj_products')||'null') || [
+{id:1,name:"Indomie 70g x 40",price:5000,old:6500,off:"-23%",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300",stock:5},
+{id:2,name:"Power Oil 3L",price:4800,old:5500,off:"-12%",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300",stock:12},
+{id:3,name:"Golden Morn 500g",price:1800,old:2000,off:"-10%",img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=300",stock:0},
+{id:4,name:"Peak Milk 400g",price:2100,old:2100,off:"",img:"https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300",stock:20}
 ];
+let cart=JSON.parse(localStorage.getItem('oj_cart')||'[]'), wish=JSON.parse(localStorage.getItem('oj_wish')||'[]'), discount=0;
 
-let cart = JSON.parse(localStorage.getItem('cart')||'[]');
-
-function render(list=products){
-  document.getElementById('productList').innerHTML = list.map(p=>`
-  <div class="card">
-    ${p.discount?`<div class="discount">${p.discount}</div>`:''}
-    <img src="${p.img}"><div style="font-size:13px;height:32px;overflow:hidden">${p.name}</div>
-    <div class="price">₦${p.price.toLocaleString()}</div><div class="old">₦${p.oldPrice.toLocaleString()}</div>
-    <span class="badge">SUPER FAST</span> <small style="font-size:10px">Sold by OJ Supermarket | 98%</small><br>
-    <small>Size: <select>${p.sizes.map(s=>`<option>${s}</option>`).join('')}</select></small>
-    <div style="font-size:11px;color:green">${p.stock}</div>
-    <button class="btn" onclick="addToCart(${p.id})">ADD TO CART</button>
-    <div style="font-size:10px;margin-top:5px">⭐⭐⭐⭐⭐ (234)</div>
-  </div>`).join('');
-  updateCart();
+function render(){
+ let q=document.getElementById('q').value.toLowerCase();
+ let filtered=PRODUCTS.filter(p=>p.name.toLowerCase().includes(q));
+ document.getElementById('list').innerHTML=filtered.map(p=>`
+ <div class="card"><div class="wish" onclick="addWish(${p.id})">❤️</div>${p.off?`<div class="off">${p.off}</div>`:''}
+ <img src="${p.img}"><div style="font-size:13px;height:30px;overflow:hidden">${p.name}</div>
+ <div class="price">₦${p.price.toLocaleString()}</div><div class="old">₦${p.old.toLocaleString()}</div>
+ <small style="font-size:10px">Sold by OJ Supermarket | 98% ⭐</small><br>
+ <small style="color:${p.stock>0?'green':'red'}">${p.stock>0?`Only ${p.stock} left - In Stock`:'Out of Stock'}</small>
+ <button class="btn" ${p.stock==0?'disabled style=background:#ccc':''} onclick="addCart(${p.id})">${p.stock==0?'OUT OF STOCK':'ADD TO CART'}</button></div>`).join('');
+ document.getElementById('cCount').innerText=cart.length; document.getElementById('wCount').innerText=wish.length;
+ let sum=cart.reduce((a,b)=>a+b.price,0); let delivery=parseInt(document.getElementById('slot').value.match(/₦(\d+)/)[1]);
+ let total = (sum*(1-discount))+delivery; document.getElementById('total').innerText='₦'+total.toLocaleString();
+ document.getElementById('slotText').innerText=document.getElementById('slot').value;
 }
-
-function addToCart(id){const p=products.find(x=>x.id==id);cart.push(p);localStorage.setItem('cart',JSON.stringify(cart));updateCart();alert(p.name+' added!');}
-function updateCart(){document.getElementById('cartCount').innerText=cart.length;let sum=cart.reduce((a,b)=>a+b.price,0);document.getElementById('total').innerText='₦'+(sum+800).toLocaleString();}
-function searchProduct(){let q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.name.toLowerCase().includes(q)));}
-function checkout(){
-  if(cart.length==0)return alert('Cart empty');
-  // Paystack integration - replace with your key
-  alert('Voucher? Enter SUPER10 for 10% OFF\n\nTotal: '+document.getElementById('total').innerText+'\n\nPaystack will open here. Add your Paystack key in code.');
-  // window.location.href = "https://paystack.com/pay/yourlink";
+function addCart(id){let p=PRODUCTS.find(x=>x.id==id); if(p.stock<=0)return alert('Out of stock!'); p.stock--; cart.push(p); localStorage.setItem('oj_products',JSON.stringify(PRODUCTS)); localStorage.setItem('oj_cart',JSON.stringify(cart)); render();}
+function addWish(id){wish.push(PRODUCTS.find(x=>x.id==id)); localStorage.setItem('oj_wish',JSON.stringify(wish)); render(); alert('Added to wishlist');}
+function applyVoucher(){if(document.getElementById('voucher').value=='SUPER10'){discount=0.1;document.getElementById('vMsg').innerText='10% OFF applied!';render();}else{document.getElementById('vMsg').innerText='Invalid code';}}
+function showWishlist(){let txt=wish.map(w=>w.name).join('\n')||'No items';showM('Wishlist ❤️',txt);}
+function showM(t,b){document.getElementById('mTitle').innerText=t;document.getElementById('mBody').innerText=b;document.getElementById('m').style.display='flex';}
+function pay(){
+ if(cart.length==0)return alert('Cart empty');
+ let email=prompt('Enter email for receipt:'); if(!email)return;
+ let total=parseInt(document.getElementById('total').innerText.replace(/[^0-9]/g,''));
+ // REPLACE WITH YOUR PAYSTACK KEY
+ let handler = PaystackPop.setup({
+  key: 'pk_test_xxxxxxxxxxxxxxxx', // <-- PUT YOUR PAYSTACK PUBLIC KEY HERE
+  email: email, amount: total*100, currency:'NGN',
+  callback: function(res){
+    alert('Payment success! Ref: '+res.reference);
+    // Send to WhatsApp automatically - Jumia style order tracking
+    let msg=`New Order OJ CREST: ${cart.map(c=>c.name).join(', ')} Total: ₦${total} Ref: ${res.reference}`;
+    window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(msg)}`);
+    cart=[]; localStorage.setItem('oj_cart','[]'); render();
+  },
+  onClose: function(){alert('Payment closed');}
+ });
+ handler.openIframe();
 }
-// Flash Sales Timer - Jumia weapon
-let time= 5*60*60; setInterval(()=>{time--;let h=Math.floor(time/3600),m=Math.floor((time%3600)/60),s=time%60;document.getElementById('timer').innerText=`${h}:${m}:${s}`},1000);
+document.getElementById('slot').onchange=render;
+let t=5*3600; setInterval(()=>{t--;let h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;document.getElementById('timer').innerText=`${h}:${m}:${s}`},1000);
 render();
-</script>
-</body>
-</html>
+</script></body></html>
