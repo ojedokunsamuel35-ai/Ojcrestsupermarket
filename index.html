@@ -1,83 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#123b2b">
-<title>OJ CREST SUPER MARKET</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OJ CREST Supermarket - Like Jumia</title>
 <style>
-:root{--green:#123b2b;--lime:#d9f36a;--paper:#f7f8f3;--ink:#18221c;--muted:#657269;--line:#e3e8df;--white:#fff;--orange:#f47b43}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0}a{color:inherit}.topline{background:#0a2118;color:#eaf5e9;text-align:center;padding:8px 12px;font-size:12px}.topline b{color:var(--lime)}header{background:var(--green);color:#fff;padding:18px max(16px,calc((100% - 1180px)/2)) 22px}.brandrow{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:.3px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:var(--lime);color:var(--green);font-weight:1000}.brand small{display:block;color:#c9d8cf;font-size:11px;font-weight:500;letter-spacing:1.4px}.header-actions{display:flex;gap:8px}.pill{background:#ffffff17;color:#fff;border:1px solid #ffffff30;padding:10px 13px;border-radius:12px}.searchbar{margin-top:18px;display:flex;gap:8px;background:#fff;border-radius:14px;padding:6px}.searchbar input{min-width:0;flex:1;border:0;outline:0;padding:10px;color:#15231b}.searchbar button{background:var(--lime);color:var(--green);border-radius:10px;padding:0 18px;font-weight:800}.wrap{max-width:1180px;margin:auto;padding:0 16px}.hero{margin:22px auto;background:var(--lime);border-radius:24px;padding:26px;display:grid;grid-template-columns:1.5fr 1fr;gap:18px;align-items:center;overflow:hidden}.eyebrow{font-size:11px;letter-spacing:1.7px;font-weight:900;text-transform:uppercase;color:#446021}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.02;letter-spacing:-1.8px;margin:10px 0 14px;max-width:550px}.hero p{max-width:480px;color:#35452b}.cta{background:var(--green);color:#fff;border-radius:12px;padding:12px 17px;font-weight:800}.hero-art{min-height:170px;display:grid;place-items:center;font-size:clamp(65px,12vw,115px);background:#ffffff55;border-radius:22px;position:relative}.hero-art:after{content:"SHOP SMART • SHOP OJ CREST";position:absolute;bottom:12px;font-size:10px;letter-spacing:2px;font-weight:900;color:#42522d}.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.benefit{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:12px;color:var(--muted)}.benefit strong{display:block;color:var(--ink);font-size:13px;margin-top:5px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 0 14px}.section-head h2{margin:0;font-size:23px;letter-spacing:-.5px}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.categories{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px}.cat{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;color:#35443a}.cat.active{background:var(--green);border-color:var(--green);color:#fff}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.toolbar input,.toolbar select{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:130px;color:var(--ink)}.toolbar .grow{flex:1;min-width:180px}.sale{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff1e9;border:1px solid #ffddca;border-radius:14px;padding:13px 16px;margin:20px 0}.sale strong{color:#9b3d13}.timer{font-weight:900;color:#9b3d13;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;position:relative;display:flex;flex-direction:column}.product-img{height:150px;display:grid;place-items:center;font-size:64px;background:linear-gradient(135deg,#f1f5eb,#e5eddd);position:relative}.badge{position:absolute;top:10px;left:10px;background:var(--green);color:#fff;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:800}.heart{position:absolute;right:10px;top:9px;border-radius:50%;width:32px;height:32px;background:#fff;color:#6a766d;font-size:17px}.heart.saved{color:#e45252}.product-body{padding:13px;display:flex;flex-direction:column;gap:7px;flex:1}.product-title{font-weight:750;font-size:14px;line-height:1.3}.rating{font-size:12px;color:#9a6b00}.rating span{color:var(--muted)}.price-row{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.price{font-size:19px;font-weight:900}.old{font-size:12px;color:#8c978e;text-decoration:line-through}.stock{font-size:11px;color:#b04c24}.return{font-size:11px;color:#247144;font-weight:700}.product-foot{display:flex;gap:7px;margin-top:auto}.add{flex:1;background:var(--green);color:#fff;border-radius:9px;padding:10px 8px;font-weight:800;font-size:12px}.view{background:#eef3e9;color:var(--green);border-radius:9px;padding:10px;font-weight:800;font-size:12px}.empty{background:#fff;border:1px dashed #ccd6ca;padding:35px;text-align:center;border-radius:16px;color:var(--muted);grid-column:1/-1}.lower-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.lower-card{padding:18px;background:#fff;border:1px solid var(--line);border-radius:16px}.lower-card .icon{font-size:26px}.lower-card h3{margin:8px 0 4px;font-size:16px}.lower-card p{margin:0;color:var(--muted);font-size:13px}footer{margin-top:35px;background:#0a2118;color:#dbe8dd;padding:30px 16px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner p{font-size:12px;color:#aebfb2;max-width:470px}.footer-links{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}.fab{position:fixed;right:16px;bottom:16px;z-index:10;background:var(--lime);color:var(--green);border-radius:999px;padding:13px 16px;font-weight:900;box-shadow:0 8px 25px #0002}.modal-backdrop{position:fixed;inset:0;background:#08140dcc;display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal-backdrop.show{display:flex}.modal{background:#fff;width:min(560px,100%);max-height:90vh;overflow:auto;border-radius:20px;padding:20px;box-shadow:0 20px 60px #0003}.modal-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.modal-head h2{font-size:21px;margin:0}.close{background:#edf1e9;border-radius:9px;padding:7px 11px}.modal-note{font-size:12px;color:var(--muted)}.cart-line{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.cart-emoji{font-size:28px}.cart-info{flex:1}.cart-info strong{display:block;font-size:13px}.qty{display:flex;align-items:center;gap:8px}.qty button{background:#edf1e9;border-radius:6px;padding:3px 9px}.total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;margin:17px 0}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px;margin:10px 0;font-size:12px;font-weight:700}.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:9px;padding:11px;width:100%;font-weight:400}.full{width:100%;margin-top:10px}.chatbox{height:180px;overflow:auto;background:#f5f7f1;border-radius:12px;padding:12px;font-size:13px}.chatbubble{background:#fff;border:1px solid var(--line);padding:9px 11px;border-radius:12px;margin:6px 0;max-width:85%}.chatbubble.me{margin-left:auto;background:#e6f4c2}.chat-send{display:flex;gap:8px;margin-top:8px}.chat-send input{flex:1;min-width:0;border:1px solid var(--line);border-radius:9px;padding:10px}.notice{background:#fff7d9;border:1px solid #f2e3a5;color:#65551b;padding:10px 12px;border-radius:10px;font-size:12px;margin:10px 0}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-art{min-height:115px}.benefits{grid-template-columns:repeat(2,1fr)}.lower-cards{grid-template-columns:1fr}.brand{font-size:15px}.header-actions .pill{padding:9px}.product-img{height:125px}}
-@media(max-width:390px){.grid{gap:9px}.product-body{padding:10px}.product-title{font-size:13px}.price{font-size:17px}.product-foot{flex-direction:column}.hero{padding:20px}.formrow{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,Arial}
+body{background:#f5f5f5}
+.topbar{background:#000;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:12px}
+.header{background:#fff;padding:10px 15px;display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:100}
+.header input{flex:1;padding:12px;border-radius:5px;border:1px solid #ccc;background:#f5f5f5}
+.flash{background:#e61601;color:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center}
+.flash #timer{background:#000;padding:5px 10px;border-radius:3px}
+.categories{background:#fff;display:flex;overflow-x:auto;padding:10px;gap:10px}
+.cat{min-width:70px;text-align:center;font-size:12px}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#fff;border-radius:5px;padding:10px;position:relative}
+.card img{width:100%;height:120px;object-fit:contain}
+.discount{position:absolute;top:5px;right:5px;background:#feef00;padding:2px 5px;font-size:12px;font-weight:bold}
+.price{font-weight:bold;margin-top:5px}
+.old{font-size:12px;text-decoration:line-through;color:#888}
+.badge{font-size:10px;background:#000;color:#fff;padding:2px 5px;border-radius:3px}
+.btn{background:#f68b1e;color:#fff;border:none;width:100%;padding:8px;margin-top:5px;border-radius:3px;font-weight:bold;cursor:pointer}
+.cart-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:15px;display:flex;justify-content:space-between;box-shadow:0 -2px 10px rgba(0,0,0,0.2)}
 </style>
 </head>
 <body>
-<div class="topline">WELCOME TO OJ CREST <b>SUPER MARKET</b> · Shop from anywhere in Nigeria</div>
-<header>
-  <div class="brandrow">
-    <div class="brand"><div class="logo">OJ</div><div>OJ CREST<small>SUPER MARKET</small></div></div>
-    <div class="header-actions"><button class="pill" id="wishlistBtn">♡ <span id="wishCount">0</span></button><button class="pill" id="cartBtn">🛒 Cart <span id="cartCount">0</span></button></div>
-  </div>
-  <div class="searchbar"><input id="search" placeholder="Search phones, fashion, groceries..." autocomplete="off"><button id="searchBtn">Search</button></div>
-</header>
-<main class="wrap">
-  <section class="hero">
-    <div><div class="eyebrow">Your everyday marketplace</div><h1>Good finds.<br>Better prices.</h1><p>Discover phones, fashion, groceries and everyday essentials—all in one place.</p><button class="cta" id="shopNow">Explore products ↓</button></div>
-    <div class="hero-art" aria-label="Shopping bags">🛍️📱👟</div>
-  </section>
-  <section class="benefits">
-    <div class="benefit">🚚<strong>Delivery options</strong>Door delivery and pickup plans</div>
-    <div class="benefit">🛡️<strong>Shop with confidence</strong>Check seller and product details</div>
-    <div class="benefit">💵<strong>Pay on delivery</strong>Request this option at checkout</div>
-    <div class="benefit">↩️<strong>7-day return policy</strong>Check eligibility before ordering</div>
-  </section>
-  <div class="section-head"><div><h2>Shop by category</h2><p>Find what you need quickly.</p></div></div>
-  <div class="categories" id="categories">
-    <button class="cat active" data-cat="All">✨ All products</button><button class="cat" data-cat="Phones">📱 Phones</button><button class="cat" data-cat="Fashion">👕 Fashion</button><button class="cat" data-cat="Groceries">🥑 Groceries</button><button class="cat" data-cat="Accessories">🎧 Accessories</button><button class="cat" data-cat="Home">🏠 Home</button>
-  </div>
-  <div class="sale"><div><strong>⚡ Deals of the day</strong><div style="font-size:12px;color:#87523b">Limited-time sample offers</div></div><div class="timer">Ends in <span id="timer">05:00:00</span></div></div>
-  <div class="section-head"><div><h2 id="listTitle">Popular picks</h2><p id="resultText">Browse our featured products.</p></div></div>
-  <div class="toolbar">
-    <input class="grow" id="filterSearch" placeholder="Filter products...">
-    <select id="brandFilter"><option value="">All brands</option><option>Samsung</option><option>Apple</option><option>Generic</option><option>OJ Crest Select</option></select>
-    <select id="sort"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option><option value="rating">Top rated</option></select>
-    <select id="maxPrice"><option value="99999999">Any price</option><option value="10000">Under ₦10,000</option><option value="50000">Under ₦50,000</option><option value="200000">Under ₦200,000</option></select>
-  </div>
-  <section class="grid" id="products"></section>
-  <section class="lower-cards">
-    <article class="lower-card"><div class="icon">💬</div><h3>Need help choosing?</h3><p>Send us a message and tell us what you're looking for.</p><button class="cta full" id="supportBtn">Chat with support</button></article>
-    <article class="lower-card"><div class="icon">📦</div><h3>Track an order</h3><p>Use your order reference to check the sample order status.</p><button class="view full" id="trackBtn">Track an order</button></article>
-    <article class="lower-card"><div class="icon">🏪</div><h3>Become a seller</h3><p>Interested in listing products? Send us your seller enquiry.</p><button class="view full" id="sellerBtn">Seller enquiry</button></article>
-  </section>
-</main>
-<footer><div class="footer-inner"><div><div class="brand"><div class="logo">OJ</div><div>OJ CREST<small>SUPER MARKET</small></div></div><p>A mobile-friendly storefront starter. Product listings and prices below are sample data—replace them with your real inventory before accepting orders.</p></div><div class="footer-links"><a href="#categories">Categories</a><a href="#products">Products</a><a href="#" id="footerSupport">Contact support</a><a href="#" id="policyBtn">Return policy</a></div></div></footer>
-<button class="fab" id="floatingCart">🛒 Cart (<span id="floatCount">0</span>)</button>
-<div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true"><div class="modal-head"><h2 id="modalTitle">Your cart</h2><button class="close" id="closeModal">✕</button></div><div id="modalContent"></div></div></div>
+
+<div class="topbar"><span>Sell on OJ CREST</span><span>Help | Track Order</span></div>
+<div class="header"><b>OJ.</b><input id="search" placeholder="Search products, brands and categories" onkeyup="searchProduct()"><span>🛒<span id="cartCount">0</span></span></div>
+
+<div class="flash"><b>⚡ Flash Sales | Supermarket Deals</b><span id="timer">00:00:00</span></div>
+
+<div class="categories">
+<div class="cat">🍚<br>Food Cupboard</div><div class="cat">🥤<br>Beverages</div><div class="cat">🧹<br>Cleaning</div><div class="cat">👶<br>Baby</div><div class="cat">🍞<br>Bakery</div>
+</div>
+
+<div class="products" id="productList"></div>
+
+<div class="cart-bar"><div><b id="total">₦0</b><br><small>Delivery: ₦800</small></div><button class="btn" style="width:150px" onclick="checkout()">CHECKOUT</button></div>
+
 <script>
-const productsData=[
-{id:1,name:"Smartphone 128GB",cat:"Phones",brand:"Samsung",price:185000,old:210000,rating:4.7,reviews:28,stock:3,emoji:"📱",official:true,desc:"A sample smartphone listing with 128GB storage."},
-{id:2,name:"Wireless Earbuds",cat:"Accessories",brand:"Generic",price:12500,old:16000,rating:4.5,reviews:41,stock:12,emoji:"🎧",official:false,desc:"Compact wireless earbuds for everyday listening."},
-{id:3,name:"Classic Sneakers",cat:"Fashion",brand:"Generic",price:22000,old:28000,rating:4.4,reviews:17,stock:8,emoji:"👟",official:false,desc:"Comfortable everyday sneakers. Check size before ordering."},
-{id:4,name:"Everyday Backpack",cat:"Fashion",brand:"OJ Crest Select",price:14500,old:18000,rating:4.6,reviews:12,stock:5,emoji:"🎒",official:true,desc:"A practical backpack for school, work and travel."},
-{id:5,name:"Grocery Starter Basket",cat:"Groceries",brand:"OJ Crest Select",price:18500,old:20000,rating:4.3,reviews:9,stock:15,emoji:"🛒",official:true,desc:"A sample basket. Contents should be confirmed before sale."},
-{id:6,name:"Electric Kettle",cat:"Home",brand:"Generic",price:17500,old:22000,rating:4.2,reviews:21,stock:7,emoji:"🫖",official:false,desc:"A sample household appliance listing."},
-{id:7,name:"Phone Charger",cat:"Accessories",brand:"Generic",price:6500,old:8000,rating:4.1,reviews:33,stock:19,emoji:"🔌",official:false,desc:"A sample charging accessory. Confirm device compatibility."},
-{id:8,name:"Casual T-Shirt",cat:"Fashion",brand:"OJ Crest Select",price:7500,old:9500,rating:4.5,reviews:14,stock:6,emoji:"👕",official:true,desc:"A basic casual T-shirt. Size and colour options need confirmation."}
+// PRODUCTS - Like Jumia Database
+const products = [
+{id:1,name:"Indomie Noodles 70g x 40",price:5000,oldPrice:6500,discount:"-23%",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200",stock:"Only 5 left",sizes:["40 pcs","20 pcs"]},
+{id:2,name:"Power Oil 3L",price:4800,oldPrice:5500,discount:"-12%",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=200",stock:"In Stock",sizes:["1L","3L","5L"]},
+{id:3,name:"Golden Penny Sugar 1kg",price:1500,oldPrice:1800,discount:"-16%",img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200",stock:"In Stock",sizes:["500g","1kg"]},
+{id:4,name:"Peak Milk 400g",price:2100,oldPrice:2100,discount:"",img:"https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200",stock:"In Stock",sizes:["400g"]}
 ];
-let activeCat="All",cart=JSON.parse(localStorage.getItem("ojcart")||"[]"),wishlist=JSON.parse(localStorage.getItem("ojwish")||"[]"),recent=JSON.parse(localStorage.getItem("ojrecent")||"[]");
-const money=n=>"₦"+Number(n).toLocaleString("en-NG");
-const el=id=>document.getElementById(id);
-function save(){localStorage.setItem("ojcart",JSON.stringify(cart));localStorage.setItem("ojwish",JSON.stringify(wishlist));updateCounts()}
-function updateCounts(){let count=cart.reduce((s,x)=>s+x.qty,0);el("cartCount").textContent=count;el("floatCount").textContent=count;el("wishCount").textContent=wishlist.length}
-function filtered(){let q=(el("search").value+" "+el("filterSearch").value).trim().toLowerCase();let arr=productsData.filter(p=>(activeCat==="All"||p.cat===activeCat)&&(!q||(p.name+" "+p.cat+" "+p.brand).toLowerCase().includes(q))&&(!el("brandFilter").value||p.brand===el("brandFilter").value)&&p.price<=Number(el("maxPrice").value));let sort=el("sort").value;if(sort==="low")arr.sort((a,b)=>a.price-b.price);if(sort==="high")arr.sort((a,b)=>b.price-a.price);if(sort==="rating")arr.sort((a,b)=>b.rating-a.rating);return arr}
-function render(){let arr=filtered();el("products").innerHTML=arr.length?arr.map(p=>`<article class="product"><div class="product-img"><span>${p.emoji}</span><span class="badge">${p.official?"✓ OJ CREST SELECT":"DEAL"}</span><button class="heart ${wishlist.includes(p.id)?"saved":""}" onclick="toggleWish(${p.id})" aria-label="Save to wishlist">${wishlist.includes(p.id)?"♥":"♡"}</button></div><div class="product-body"><div class="product-title">${p.name}</div><div class="rating">★ ${p.rating} <span>(${p.reviews} sample reviews)</span></div><div class="price-row"><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div><div class="stock">Only ${p.stock} left in sample stock</div><div class="return">↩ 7-day return policy*</div><div class="product-foot"><button class="add" onclick="addCart(${p.id})">Add to cart</button><button class="view" onclick="viewProduct(${p.id})">Details</button></div></div></article>`).join(""):`<div class="empty">No matching products. Try a different search or filter.</div>`;el("resultText").textContent=`Showing ${arr.length} sample product${arr.length===1?"":"s"}.`;updateCounts()}
-function toggleWish(id){wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];save();render()}
-function addCart(id){let found=cart.find(x=>x.id===id);if(found)found.qty++;else cart.push({id,qty:1});save();render();toast("Added to cart")}
-function toast(msg){let old=document.getElementById("toast");if(old)old.remove();let t=document.createElement("div");t.id="toast";t.textContent=msg;t.style.cssText="position:fixed;bottom:75px;left:50%;transform:translateX(-50%);background:#123b2b;color:white;padding:12px 18px;border-radius:12px;z-index:30;box-shadow:0 8px 25px #0002";document.body.appendChild(t);setTimeout(()=>t.remove(),1900)}
-function openModal(title,content){el("modalTitle").textContent=title;el("modalContent").innerHTML=content;el("modalBackdrop").classList.add("show")}
-function closeModal(){el("modalBackdrop").classList.remove("show")}
-function cartContent(){let subtotal=cart.reduce((s,x)=>s+productsData.find(p=>p.id===x.id).price*x.qty,0);return `${cart.length?cart.map(x=>{let p=productsData.find(p=>p.id===x.id);return `<div class="cart-line"><div class="cart-emoji">${p.emoji}</div><div class="cart-info"><strong>${p.name}</strong><span>${money(p.price)} each</span><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button>${x.qty}<button onclick="changeQty(${p.id},1)">+</button><button class="close" onclick="removeCart(${p.id})">Remove</button></div></div><strong>${money(p.price*x.qty)}</strong></div>`}).join(""):`<p>Your cart is empty. Add a product to get started.</p>`}<div class="total"><span>Subtotal</span><span>${money(subtotal)}</span></div><div class="notice">Demo only: this page does not process real payments or create real orders yet.</div>${cart.length?`<button class="cta full" onclick="checkout()">Continue to checkout</button>`:""}`}
-function changeQty(id,d){let x=cart.find(a=>a.id===id);if(x)x.qty+=d;cart=cart.filter(a=>a.qty>0);save();openModal("Your cart",cartContent());render()}
-function removeCart(id){cart=cart.filter(x=>x.id!==id);save();openModal("Your cart",cartContent());render()}
-function checkout(){let total=cart.reduce((s,x)=>s+productsData.find(p=>p.id===x.id).price*x.qty,0);openModal("Checkout",`<div class="notice">This is a demo checkout. It will not charge you or send a real order.</div><form id="checkoutForm"><div class="formrow"><label class="field">Full name<input required name="name" placeholder="Your name"></label><label class="field">Phone number<input required name="phone" inputmode="tel" placeholder="080..."></label></div><label class="field">Delivery address<input required name="address" placeholder="Street, town/city, state"></label><div class="formrow"><label class="field">Delivery option<select name="delivery"><option>Door delivery</option><option>Pickup station (availability to be confirmed)</option><option>Express delivery (availability to be confirmed)</option></select></label><label class="field">Payment preference<select name="payment"><option>Pay on delivery 
+
+let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+
+function render(list=products){
+  document.getElementById('productList').innerHTML = list.map(p=>`
+  <div class="card">
+    ${p.discount?`<div class="discount">${p.discount}</div>`:''}
+    <img src="${p.img}"><div style="font-size:13px;height:32px;overflow:hidden">${p.name}</div>
+    <div class="price">₦${p.price.toLocaleString()}</div><div class="old">₦${p.oldPrice.toLocaleString()}</div>
+    <span class="badge">SUPER FAST</span> <small style="font-size:10px">Sold by OJ Supermarket | 98%</small><br>
+    <small>Size: <select>${p.sizes.map(s=>`<option>${s}</option>`).join('')}</select></small>
+    <div style="font-size:11px;color:green">${p.stock}</div>
+    <button class="btn" onclick="addToCart(${p.id})">ADD TO CART</button>
+    <div style="font-size:10px;margin-top:5px">⭐⭐⭐⭐⭐ (234)</div>
+  </div>`).join('');
+  updateCart();
+}
+
+function addToCart(id){const p=products.find(x=>x.id==id);cart.push(p);localStorage.setItem('cart',JSON.stringify(cart));updateCart();alert(p.name+' added!');}
+function updateCart(){document.getElementById('cartCount').innerText=cart.length;let sum=cart.reduce((a,b)=>a+b.price,0);document.getElementById('total').innerText='₦'+(sum+800).toLocaleString();}
+function searchProduct(){let q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.name.toLowerCase().includes(q)));}
+function checkout(){
+  if(cart.length==0)return alert('Cart empty');
+  // Paystack integration - replace with your key
+  alert('Voucher? Enter SUPER10 for 10% OFF\n\nTotal: '+document.getElementById('total').innerText+'\n\nPaystack will open here. Add your Paystack key in code.');
+  // window.location.href = "https://paystack.com/pay/yourlink";
+}
+// Flash Sales Timer - Jumia weapon
+let time= 5*60*60; setInterval(()=>{time--;let h=Math.floor(time/3600),m=Math.floor((time%3600)/60),s=time%60;document.getElementById('timer').innerText=`${h}:${m}:${s}`},1000);
+render();
+</script>
+</body>
+</html>
